@@ -1,0 +1,6 @@
+=== radky, ktere neodpovidaji formatu vystupu
+=== chybejici vystupy
+>> chybejici vystup 'helping elves' a 'get help'
+>>>> nemusi byt chyba.
+^[0-9][0-9]*:Elf[0-9][0-9]*:gethelp$
+^[0-9][0-9]*:Santa:helpingelves$

@@ -1,0 +1,309 @@
+1040771 strtol(0x7ffe1a9a25f4, 0x7ffe1a9a01f8, 10, 0x7ffe1a9a01f8) = 3
+1040771 strtol(0x7ffe1a9a25f6, 0x7ffe1a9a01f8, 10, 0x7ffe1a9a01f8) = 1
+1040771 strtol(0x7ffe1a9a25f8, 0x7ffe1a9a01f8, 10, 0x7ffe1a9a01f8) = 1
+1040771 strtol(0x7ffe1a9a25fa, 0x7ffe1a9a01f8, 10, 0x7ffe1a9a01f8) = 2
+1040771 fopen("proj2.out", "w")                  = 0x1d5f2a0
+1040771 shmget(0, 32, 950, 0)                    = 0x388019
+1040771 shmat(0x388019, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e598000
+1040771 sem_init(0x7f8e0e598000, 1, 1, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 32, 950, 0x7f8e0e4736cb)       = 0x38801a
+1040771 shmat(0x38801a, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e590000
+1040771 sem_init(0x7f8e0e590000, 1, 0, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 32, 950, 0x7f8e0e4736cb)       = 0x38801b
+1040771 shmat(0x38801b, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e588000
+1040771 sem_init(0x7f8e0e588000, 1, 1, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 32, 950, 0x7f8e0e4736cb)       = 0x38801c
+1040771 shmat(0x38801c, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e580000
+1040771 sem_init(0x7f8e0e580000, 1, 0, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 32, 950, 0x7f8e0e4736cb)       = 0x38801d
+1040771 shmat(0x38801d, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e578000
+1040771 sem_init(0x7f8e0e578000, 1, 1, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 32, 950, 0x7f8e0e4736cb)       = 0x388029
+1040771 shmat(0x388029, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e570000
+1040771 sem_init(0x7f8e0e570000, 1, 0, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 32, 950, 0x7f8e0e4736cb)       = 0x38802a
+1040771 shmat(0x38802a, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e568000
+1040771 sem_init(0x7f8e0e568000, 1, 0, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 32, 950, 0x7f8e0e4736cb)       = 0x38802e
+1040771 shmat(0x38802e, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e368000
+1040771 sem_init(0x7f8e0e368000, 1, 0, 0x7f8e0e4736cb) = 0
+1040771 shmget(0, 4, 950, 0x7f8e0e4736cb)        = 0x38802f
+1040771 shmat(0x38802f, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e360000
+1040771 shmget(0, 4, 950, 0x7f8e0e4736cb)        = 0x388030
+1040771 shmat(0x388030, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e358000
+1040771 shmget(0, 4, 950, 0x7f8e0e4736cb)        = 0x388031
+1040771 shmat(0x388031, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e350000
+1040771 shmget(0, 4, 950, 0x7f8e0e4736cb)        = 0x388038
+1040771 shmat(0x388038, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e348000
+1040771 shmget(0, 4, 950, 0x7f8e0e4736cb)        = 0x388039
+1040771 shmat(0x388039, 0, 0, 0x7f8e0e47372e)    = 0x7f8e0e340000
+1040771 fork()                                   = 1040772
+1040771 fork( <unfinished ...>
+1040772 <... fork resumed> )                     = 0
+1040772 sem_wait(0x7f8e0e598000, 0, 0x1d5f2a0, 0x403210 <unfinished ...>
+1040771 <... fork resumed> )                     = 1040773
+1040772 <... sem_wait resumed> )                 = 0
+1040771 fork( <unfinished ...>
+1040772 fprintf(0x1d5f2a0, "%d: Santa: ", 1 <unfinished ...>
+1040773 <... fork resumed> )                     = 0
+1040773 time(nil <unfinished ...>
+1040771 <... fork resumed> )                     = 1040774
+1040771 fork( <unfinished ...>
+1040773 <... time resumed> )                     = 1620073342
+1040773 srand(1620073342)                        = <void>
+1040771 <... fork resumed> )                     = 1040775
+1040771 fork( <unfinished ...>
+1040773 rand( <unfinished ...>
+1040775 <... fork resumed> )                     = 0
+1040775 time(nil <unfinished ...>
+1040773 <... rand resumed> )                     = 1063314445
+1040773 sem_wait(0x7f8e0e598000, 1, 0x1d5f2a0, 0x403254 <unfinished ...>
+1040775 <... time resumed> )                     = 1620073342
+1040771 <... fork resumed> )                     = 1040776
+1040775 srand(1620073342 <unfinished ...>
+1040771 wait(nil <unfinished ...>
+1040776 <... fork resumed> )                     = 0
+1040776 time(nil <unfinished ...>
+1040775 <... srand resumed> )                    = <void>
+1040775 rand( <unfinished ...>
+1040776 <... time resumed> )                     = 1620073342
+1040776 srand(1620073342 <unfinished ...>
+1040775 <... rand resumed> )                     = 1063314445
+1040775 sem_wait(0x7f8e0e598000, 3, 0x1d5f2a0, 0x403254 <unfinished ...>
+1040776 <... srand resumed> )                    = <void>
+1040776 rand()                                   = 1063314445
+1040776 sem_wait(0x7f8e0e598000, 1, 0x1d5f2a0, 0x403283 <unfinished ...>
+1040772 <... fprintf resumed> )                  = 10
+1040772 vfprintf(0x1d5f2a0, "going to sleep\n", 0x7ffe1a9a0148) = 15
+1040772 fflush(0x1d5f2a0)                        = 0
+1040772 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7 <unfinished ...>
+1040774 <... fork resumed> )                     = 0
+1040772 <... sem_post resumed> )                 = 0
+1040774 time(nil <unfinished ...>
+1040772 sem_wait(0x7f8e0e580000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040775 <... sem_wait resumed> )                 = 0
+1040774 <... time resumed> )                     = 1620073342
+1040775 fprintf(0x1d5f2a0, "%d: Elf %d: ", 2, 3 <unfinished ...>
+1040774 srand(1620073342)                        = <void>
+1040774 rand()                                   = 1063314445
+1040775 <... fprintf resumed> )                  = 10
+1040774 sem_wait(0x7f8e0e598000, 2, 0x1d5f2a0, 0x403254 <unfinished ...>
+1040775 vfprintf(0x1d5f2a0, "started\n", 0x7ffe1a9a0138) = 8
+1040775 fflush(0x1d5f2a0)                        = 0
+1040775 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040773 <... sem_wait resumed> )                 = 0
+1040775 usleep(0 <unfinished ...>
+1040773 fprintf(0x1d5f2a0, "%d: Elf %d: ", 3, 1 <unfinished ...>
+1040775 <... usleep resumed> )                   = <void>
+1040775 sem_wait(0x7f8e0e598000, 3, 0x1d5f2a0, 0x40325d <unfinished ...>
+1040773 <... fprintf resumed> )                  = 10
+1040773 vfprintf(0x1d5f2a0, "started\n", 0x7ffe1a9a0138) = 8
+1040773 fflush(0x1d5f2a0)                        = 0
+1040773 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7 <unfinished ...>
+1040776 <... sem_wait resumed> )                 = 0
+1040773 <... sem_post resumed> )                 = 0
+1040776 fprintf(0x1d5f2a0, "%d: RD %d: ", 4, 1 <unfinished ...>
+1040773 usleep(0 <unfinished ...>
+1040776 <... fprintf resumed> )                  = 9
+1040776 vfprintf(0x1d5f2a0, "rstarted\n", 0x7ffe1a9a0128 <unfinished ...>
+1040773 <... usleep resumed> )                   = <void>
+1040776 <... vfprintf resumed> )                 = 9
+1040773 sem_wait(0x7f8e0e598000, 1, 0x1d5f2a0, 0x40325d <unfinished ...>
+1040776 fflush(0x1d5f2a0)                        = 0
+1040776 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040774 <... sem_wait resumed> )                 = 0
+1040776 usleep(1000 <unfinished ...>
+1040774 fprintf(0x1d5f2a0, "%d: Elf %d: ", 5, 2) = 10
+1040774 vfprintf(0x1d5f2a0, "started\n", 0x7ffe1a9a0138) = 8
+1040774 fflush(0x1d5f2a0)                        = 0
+1040774 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7 <unfinished ...>
+1040775 <... sem_wait resumed> )                 = 0
+1040775 fprintf(0x1d5f2a0, "%d: Elf %d: ", 6, 3) = 10
+1040774 <... sem_post resumed> )                 = 0
+1040775 vfprintf(0x1d5f2a0, "need help\n", 0x7ffe1a9a0138 <unfinished ...>
+1040774 usleep(0 <unfinished ...>
+1040775 <... vfprintf resumed> )                 = 10
+1040775 fflush(0x1d5f2a0 <unfinished ...>
+1040776 <... usleep resumed> )                   = <void>
+1040776 sem_wait(0x7f8e0e598000, 1, 0x1d5f2a0, 0x40328d <unfinished ...>
+1040775 <... fflush resumed> )                   = 0
+1040775 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7 <unfinished ...>
+1040774 <... usleep resumed> )                   = <void>
+1040776 <... sem_wait resumed> )                 = 0
+1040776 fprintf(0x1d5f2a0, "%d: RD %d: ", 7, 1 <unfinished ...>
+1040775 <... sem_post resumed> )                 = 0
+1040774 sem_wait(0x7f8e0e598000, 2, 0x1d5f2a0, 0x40325d <unfinished ...>
+1040775 sem_wait(0x7f8e0e578000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040776 <... fprintf resumed> )                  = 9
+1040775 <... sem_wait resumed> )                 = 0
+1040776 vfprintf(0x1d5f2a0, "return home\n", 0x7ffe1a9a0128 <unfinished ...>
+1040775 sem_wait(0x7f8e0e588000, 1, 0, 0x7f8e0e5530a5 <unfinished ...>
+1040776 <... vfprintf resumed> )                 = 12
+1040775 <... sem_wait resumed> )                 = 0
+1040776 fflush(0x1d5f2a0 <unfinished ...>
+1040775 sem_post(0x7f8e0e578000, 1, 1, 0x7f8e0e5530a5) = 0
+1040775 sem_post(0x7f8e0e588000, 128, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040776 <... fflush resumed> )                   = 0
+1040776 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7 <unfinished ...>
+1040775 <... sem_post resumed> )                 = 0
+1040775 sem_wait(0x7f8e0e568000, 128, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040776 <... sem_post resumed> )                 = 0
+1040776 sem_wait(0x7f8e0e588000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040773 <... sem_wait resumed> )                 = 0
+1040773 fprintf(0x1d5f2a0, "%d: Elf %d: ", 8, 1 <unfinished ...>
+1040776 <... sem_wait resumed> )                 = 0
+1040776 sem_post(0x7f8e0e580000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040773 <... fprintf resumed> )                  = 10
+1040773 vfprintf(0x1d5f2a0, "need help\n", 0x7ffe1a9a0138) = 10
+1040776 <... sem_post resumed> )                 = 0
+1040773 fflush(0x1d5f2a0 <unfinished ...>
+1040776 sem_post(0x7f8e0e588000, 1, 1, 0x7f8e0e5530a5) = 0
+1040773 <... fflush resumed> )                   = 0
+1040776 sem_wait(0x7f8e0e590000, 128, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040773 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040773 sem_wait(0x7f8e0e578000, 128, 1, 0x7f8e0e4622f7 <unfinished ...>
+1040772 <... sem_wait resumed> )                 = 0
+1040772 sem_wait(0x7f8e0e588000, 0, 0, 0x7f8e0e552a24 <unfinished ...>
+1040773 <... sem_wait resumed> )                 = 0
+1040773 sem_wait(0x7f8e0e588000, 128, 0, 0x7f8e0e4622f7 <unfinished ...>
+1040772 <... sem_wait resumed> )                 = 0
+1040772 sem_wait(0x7f8e0e598000, 0, 0x1d5f2a0, 0x40322f) = 0
+1040772 fprintf(0x1d5f2a0, "%d: Santa: ", 9)     = 10
+1040772 vfprintf(0x1d5f2a0, "closing workshop\n", 0x7ffe1a9a0148) = 17
+1040772 fflush(0x1d5f2a0)                        = 0
+1040772 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040772 sem_post(0x7f8e0e590000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040776 <... sem_wait resumed> )                 = 0
+1040772 <... sem_post resumed> )                 = 0
+1040776 sem_wait(0x7f8e0e598000, 1, 0x1d5f2a0, 0x40329a <unfinished ...>
+1040772 sem_wait(0x7f8e0e570000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040776 <... sem_wait resumed> )                 = 0
+1040776 fprintf(0x1d5f2a0, "%d: RD %d: ", 10, 1) = 10
+1040776 vfprintf(0x1d5f2a0, "get hitched\n", 0x7ffe1a9a0128) = 12
+1040776 fflush(0x1d5f2a0)                        = 0
+1040776 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040776 sem_post(0x7f8e0e570000, 1, 0, 0x7f8e0e5530a5) = 0
+1040772 <... sem_wait resumed> )                 = 0
+1040776 sem_post(0x7f8e0e590000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040772 sem_wait(0x7f8e0e598000, 0, 0x1d5f2a0, 0x403241 <unfinished ...>
+1040776 <... sem_post resumed> )                 = 0
+1040772 <... sem_wait resumed> )                 = 0
+1040776 fclose(0x1d5f2a0 <unfinished ...>
+1040772 fprintf(0x1d5f2a0, "%d: Santa: ", 11)    = 11
+1040772 vfprintf(0x1d5f2a0, "Christmas started\n", 0x7ffe1a9a0148 <unfinished ...>
+1040776 <... fclose resumed> )                   = 0
+1040772 <... vfprintf resumed> )                 = 18
+1040772 fflush(0x1d5f2a0)                        = 0
+1040772 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7 <no return ...>
+1040776 +++ exited (status 0) +++
+1040771 --- SIGCHLD (Child exited) ---
+1040771 <... wait resumed> )                     = 1040776
+1040771 __errno_location( <unfinished ...>
+1040772 <... sem_post resumed> )                 = 0
+1040772 sem_post(0x7f8e0e568000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040771 <... __errno_location resumed> )         = 0x7f8e0e59b6c0
+1040771 wait(nil <unfinished ...>
+1040775 <... sem_wait resumed> )                 = 0
+1040775 sem_wait(0x7f8e0e588000, 0, 0, 0x7f8e0e552a24 <unfinished ...>
+1040772 <... sem_post resumed> )                 = 0
+1040772 sem_post(0x7f8e0e588000, 1, 1, 0x7f8e0e5530a5 <unfinished ...>
+1040773 <... sem_wait resumed> )                 = 0
+1040772 <... sem_post resumed> )                 = 0
+1040773 sem_post(0x7f8e0e578000, 0, 0x100000000, 0x7f8e0e552a24 <unfinished ...>
+1040772 fclose(0x1d5f2a0 <unfinished ...>
+1040773 <... sem_post resumed> )                 = 0
+1040773 sem_post(0x7f8e0e568000, 128, 1, 0x7f8e0e552a24 <unfinished ...>
+1040772 <... fclose resumed> )                   = 0
+1040773 <... sem_post resumed> )                 = 0
+1040773 sem_post(0x7f8e0e588000, 128, 1, 0x7f8e0e552a24 <no return ...>
+1040772 +++ exited (status 0) +++
+1040771 --- SIGCHLD (Child exited) ---
+1040771 <... wait resumed> )                     = 1040772
+1040775 <... sem_wait resumed> )                 = 0
+1040771 __errno_location( <unfinished ...>
+1040775 sem_post(0x7f8e0e578000, 0, 0, 0x7f8e0e552a24 <unfinished ...>
+1040771 <... __errno_location resumed> )         = 0x7f8e0e59b6c0
+1040775 <... sem_post resumed> )                 = 0
+1040771 wait(nil <unfinished ...>
+1040775 sem_post(0x7f8e0e568000, 128, 2, 0x7f8e0e552a24) = 0
+1040775 sem_post(0x7f8e0e588000, 128, 2, 0x7f8e0e552a24 <unfinished ...>
+1040773 <... sem_post resumed> )                 = 0
+1040773 sem_wait(0x7f8e0e598000, 1, 0x1d5f2a0, 0x403272 <unfinished ...>
+1040775 <... sem_post resumed> )                 = 0
+1040775 sem_wait(0x7f8e0e598000, 3, 0x1d5f2a0, 0x403272 <unfinished ...>
+1040773 <... sem_wait resumed> )                 = 0
+1040773 fprintf(0x1d5f2a0, "%d: Elf %d: ", 12, 1) = 11
+1040773 vfprintf(0x1d5f2a0, "taking holidays\n", 0x7ffe1a9a0138) = 16
+1040773 fflush(0x1d5f2a0)                        = 0
+1040773 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7 <unfinished ...>
+1040775 <... sem_wait resumed> )                 = 0
+1040773 <... sem_post resumed> )                 = 0
+1040775 fprintf(0x1d5f2a0, "%d: Elf %d: ", 13, 3 <unfinished ...>
+1040773 fclose(0x1d5f2a0 <unfinished ...>
+1040775 <... fprintf resumed> )                  = 11
+1040775 vfprintf(0x1d5f2a0, "taking holidays\n", 0x7ffe1a9a0138 <unfinished ...>
+1040773 <... fclose resumed> )                   = 0
+1040775 <... vfprintf resumed> )                 = 16
+1040775 fflush(0x1d5f2a0 <no return ...>
+1040773 +++ exited (status 0) +++
+1040771 --- SIGCHLD (Child exited) ---
+1040771 <... wait resumed> )                     = 1040773
+1040771 __errno_location()                       = 0x7f8e0e59b6c0
+1040771 wait(nil <unfinished ...>
+1040775 <... fflush resumed> )                   = 0
+1040775 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040775 fclose(0x1d5f2a0)                        = 0
+1040774 <... sem_wait resumed> )                 = 0
+1040774 fprintf(0x1d5f2a0, "%d: Elf %d: ", 14, 2 <no return ...>
+1040775 +++ exited (status 0) +++
+1040771 --- SIGCHLD (Child exited) ---
+1040774 <... fprintf resumed> )                  = 11
+1040771 <... wait resumed> )                     = 1040775
+1040774 vfprintf(0x1d5f2a0, "need help\n", 0x7ffe1a9a0138 <unfinished ...>
+1040771 __errno_location( <unfinished ...>
+1040774 <... vfprintf resumed> )                 = 10
+1040774 fflush(0x1d5f2a0 <unfinished ...>
+1040771 <... __errno_location resumed> )         = 0x7f8e0e59b6c0
+1040771 wait(nil <unfinished ...>
+1040774 <... fflush resumed> )                   = 0
+1040774 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040774 sem_wait(0x7f8e0e578000, 128, 1, 0x7f8e0e4622f7) = 0
+1040774 sem_wait(0x7f8e0e588000, 128, 1, 0x7f8e0e4622f7) = 0
+1040774 sem_post(0x7f8e0e578000, 128, 0, 0x7f8e0e4622f7) = 0
+1040774 sem_post(0x7f8e0e568000, 128, 2, 0x7f8e0e4622f7) = 0
+1040774 sem_post(0x7f8e0e588000, 128, 3, 0x7f8e0e4622f7) = 0
+1040774 sem_wait(0x7f8e0e598000, 2, 0x1d5f2a0, 0x403272) = 0
+1040774 fprintf(0x1d5f2a0, "%d: Elf %d: ", 15, 2) = 11
+1040774 vfprintf(0x1d5f2a0, "taking holidays\n", 0x7ffe1a9a0138) = 16
+1040774 fflush(0x1d5f2a0)                        = 0
+1040774 sem_post(0x7f8e0e598000, 0, 0, 0x7f8e0e4622f7) = 0
+1040774 fclose(0x1d5f2a0)                        = 0
+1040774 +++ exited (status 0) +++
+1040771 --- SIGCHLD (Child exited) ---
+1040771 <... wait resumed> )                     = 1040774
+1040771 __errno_location()                       = 0x7f8e0e59b6c0
+1040771 wait(nil)                                = -1
+1040771 __errno_location()                       = 0x7f8e0e59b6c0
+1040771 fclose(0x1d5f2a0)                        = 0
+1040771 sem_destroy(0x7f8e0e598000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 sem_destroy(0x7f8e0e588000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 sem_destroy(0x7f8e0e580000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 sem_destroy(0x7f8e0e590000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 sem_destroy(0x7f8e0e578000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 sem_destroy(0x7f8e0e570000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 sem_destroy(0x7f8e0e568000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 sem_destroy(0x7f8e0e368000, 0x1d5f2a0, 0x1d5f010, 1) = 0
+1040771 shmctl(0x38802f, 0, 0, 1)                = 0
+1040771 shmctl(0x388030, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x388019, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x38801a, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x38801b, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x38801c, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x388031, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x38801d, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x388029, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x38802a, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x388038, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x38802e, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 shmctl(0x388039, 0, 0, 0x7f8e0e47376b)   = 0
+1040771 +++ exited (status 0) +++

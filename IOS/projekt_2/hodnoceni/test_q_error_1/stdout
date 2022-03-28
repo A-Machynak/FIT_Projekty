@@ -1,0 +1,6 @@
+Usage: ./proj2 NE NR TE TR
+
+NE:	Elf count (0 < NE < 1000)
+NR:	Reindeer count (0 < NR < 20)
+TE:	Max elf work time in ms (0 <= TE <= 1000)
+TR:	Max reindeer holiday time in ms (0 <= RE <= 1000)

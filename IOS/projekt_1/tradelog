@@ -1,0 +1,396 @@
+#!/bin/sh
+export POSIXLY_CORRECT=yes
+
+LogFile=""
+LogGz=""
+CMD=""
+FAfterDate=""
+FBeforeDate=""
+FTicker=""
+FWidth=""
+
+FilterOut=""
+
+help_f () {
+	echo "tradelog - analyzator logu z obchodovani na burze"
+	echo ""
+	echo "Pouziti:"
+	echo "	tradelog [FILTRY] [PRIKAZ] [LOG [LOG2 [...]]]"
+	echo "	tradelog [FILTRY] [PRIKAZ] < logFile.log"
+	echo "	tradelog [-h|--help]"
+	echo "	(Na poradi filtru, prikazu a logu nezalezi)"
+	echo ""
+	echo "Prikazy (muze byt pouze 1): "
+	echo "	list-tick	Vypis seznamu vyskytujicich se burzovnich symbolu"
+	echo "	profit		Vypis celkoveho zisku z uzavrenych pozic"
+	echo "	pos 		Vypis hodnot aktualne drzenych pozic serazenych sestupne dle hodnoty"
+	echo "	last-price	Vypis posledni zname ceny pro kazdy ticker"
+	echo "	hist-ord	Vypis histogramu poctu transakci dle tickeru"
+	echo "	graph-pos	Vypis grafu hodnot drzenych pozic dle tickeru"
+	echo ""
+	echo "Filtry: "
+	echo "	-a DATETIME	after: Jsou uvazovany pouze zaznamy po tomto datu (bez tohoto data)"
+	echo "	-b DATETIME	before: Jsou uvazovany pouze zaznamy pred timto datem (bez tohoto data)"
+	echo "			Format DATETIME: YYYY-MM-DD HH:MM:SS"
+	echo "	-t TICKER	Jsou uvazovany pouze zaznamy odpovidajici danemu tickeru"
+	echo "	-w WIDTH	U vypisu grafu nastavuje jejich sirku - delku nejdelsiho radku na width"
+	echo "			Muze byt pouze kladne cele cislo."
+	echo "	-h nebo --help	Vypise tuto napovedu."
+	echo ""
+}
+
+# Throw error
+throwErr () {
+	help_f
+	>&2 echo "[ERROR]: $1"
+	exit 1
+}
+
+# Debug output
+debug () {
+	echo "[------------------Debug------------------]"
+	echo "|Width		$FWidth"
+	echo "|Ticker		$FTicker"
+	echo "|After		$FAfterDate"
+	echo "|Before		$FBeforeDate"
+	echo "|Cmd		$CMD"
+	echo "|Logs		$LogFile"
+	echo "|GzLogs		$LogGz"
+	echo "[-----------------------------------------]"
+	
+}
+
+# Store and check arguments
+while [ "$#" -ne 0 ]; do
+	case $1 in
+		-h | --help)
+			help_f
+			exit 0
+			;;
+		# Commands
+		list-tick | profit | pos | last-price | hist-ord | graph-pos)
+			if [ -z "$CMD" ]; then
+				CMD=$1
+			else
+				throwErr "Muze byt zadan pouze 1 prikaz"
+			fi
+			shift
+			;;
+		# Filters
+		-a)
+			shift
+			# Check if already set
+			if [ -n "$FAfterDate" ]; then
+				tempDate=$(date -d "$1" +%s 2>/dev/null)
+				# Check if valid date
+				if [ -z "$tempDate" ]; then
+					throwErr "Spatny format data [-b $1]"
+				fi
+				if [ "$((tempDate))" -lt "$((FAfterDate))" ]; then
+					FAfterDate="$1"
+				fi
+			else
+				tempDate=$(date -d "$1" +%s 2>/dev/null)
+				# Check if valid date
+				if [ -z "$tempDate" ]; then
+					throwErr "Spatny format data [-b $1]"
+				fi
+				FAfterDate="$1"
+			fi
+			shift
+			;;
+		-b)
+			shift
+			# Check if already set
+			if [ -n "$FBeforeDate" ]; then
+				tempDate=$(date -d "$1" +%s 2>/dev/null)
+				# Check if valid date
+				if [ -z "$tempDate" ]; then
+					throwErr "Spatny format data [-b $1]"
+				fi
+				if [ "$((tempDate))" -lt "$((FBeforeDate))" ]; then
+					FBeforeDate="$1"
+				fi
+			else
+				tempDate=$(date -d "$1" +%s 2>/dev/null)
+				# Check if valid date
+				if [ -z "$tempDate" ]; then
+					throwErr "Spatny format data [-b $1]"
+				fi
+				FBeforeDate="$1"
+			fi
+			shift
+			;;
+		-t)
+			shift
+			FTicker=" $1 $FTicker"
+			shift
+			;;
+		-w)
+			shift
+			if [ -n "$FWidth" ]; then
+				throwErr "Povolen pouze jeden argument -w [Zadano -w $FWidth, -w $1, ...]"
+			fi
+			if ! [ "$1" -ge 1 ] 2>/dev/null; then
+				throwErr "Filtr akceptuje pouze cisla > 0 [-w $1]"
+			fi
+			FWidth=$1
+			shift
+			;;
+		*.gz)
+			LogGz="$1 $LogGz"
+			shift
+			;;
+		*)
+			LogFile="$LogFile $1"
+			shift
+			;;
+	esac
+done
+
+#debug
+
+FilterOut=""
+
+# Read from stdin if no logfiles specified
+if [ -z "$LogFile" ] && [ -z "$LogGz" ]; then
+	while read -r line; do
+		if [ "$FilterOut" = "" ]; then
+			FilterOut="$line"
+		else
+			FilterOut="$FilterOut\n$line"
+		fi
+	done
+fi
+
+# Check and read gzipped files
+for FILEGz in $LogGz; do
+	if [ ! -f "$FILEGz" ]; then
+		throwErr "Soubor s nazvem $FILEGz nebyl nalezen."
+	fi
+
+	if (file "$FILEGz" | grep gzip > /dev/null); then
+		tmpOut=$(gzip -d -c "$FILEGz")
+		FilterOut="$FilterOut $tmpOut"
+	else 
+		throwErr "$FILEGz neni soubor komprimovany gzip"
+	fi
+done
+
+# Check if files exist and read them
+for FILE in $LogFile; do
+	if [ ! -f "$FILE" ]; then
+		throwErr "Soubor s nazvem $FILE nebyl nalezen."
+	fi
+	tmpOut=$(cat "$FILE")
+	FilterOut="$FilterOut $tmpOut"
+done
+
+# Filter after date
+if [ -n "$FAfterDate" ]; then
+	IFS='
+	'
+	FilterOut=$(echo "$FilterOut" | \
+		awk -F ';' \
+		-v dat="$FAfterDate" \
+		'{
+			if (dat < $1) {
+				print
+			}
+		}')
+fi
+
+# Filter before date
+if [ -n "$FBeforeDate" ]; then
+	IFS='
+	'
+	FilterOut=$(echo "$FilterOut" | \
+		awk -F ';' \
+		-v dat="$FBeforeDate" \
+		'{
+			if (dat > $1) {
+				print
+			}
+		}')
+fi
+
+# Filter tickers
+if [ -n "$FTicker" ]; then
+	IFS='
+	'
+	FilterOut=$(echo "$FilterOut" | \
+		awk -F ';' \
+		-v tickers="$FTicker" \
+		'{
+			var=" "$2" "
+			if ( tickers ~ var ) {
+				print
+			}
+		}')
+fi
+
+case $CMD in
+	list-tick)
+		val=$(echo "$FilterOut" | \
+			awk -F ';' \
+			'{
+				arr[$2]=$2
+			} END {
+				for (x in arr) {
+					printf("%s\n", arr[x])
+				}
+			}')
+		echo "$val" | sort
+		;;
+	profit)
+		profit=$(echo "$FilterOut" | \
+			awk -F ';' \
+			'{
+				if ($3 == "buy") {
+					sum -= $6 * $4
+				} else {
+					sum += $6 * $4
+				}
+			} END {
+				printf("%.2f", sum)
+			}')
+		
+		echo "$profit"
+		;;
+	pos)
+		pos=$(echo "$FilterOut" | \
+			awk -F ';' \
+			'{
+				if ($3 == "buy") {
+					arr[$2] += $6
+				} else if ($3 == "sell") {
+					arr[$2] -= $6
+				}
+				lastVal[$2] = $4
+			} END {
+				lV=0
+				for (x in arr) {
+					arr[x] = arr[x] * lastVal[x]
+					tmpFlo=sprintf("%.2f", arr[x])
+					if(length(tmpFlo) > lV) {
+						lV=length(tmpFlo)
+					}
+				}
+				for(x in arr) {
+					printf("%9-s : %*.2f\n", x, lV, arr[x])
+				}
+			}')
+		
+		echo "$pos" | sort -r -k 2 -n -t ':'
+		;;
+	last-price)
+		IFS=$(printf '\n')
+		lp=$(echo "$FilterOut" | \
+			awk -F ';' \
+			'{
+				if (ts[$2] < $1) {
+					arr[$2]=$4
+					ts[$2]=$1
+				}
+			} END {
+				lV=0
+				for (x in arr) {
+					if(length(arr[x]) > lV) {
+						lV=length(arr[x])
+					}
+				}
+				for(x in arr) {
+					printf("%9-s : %*.2f\n", x, lV, arr[x])
+				}
+			}')
+		
+		echo "$lp" | sort
+		;;
+	hist-ord)
+		if [ "$FWidth" = "" ]; then
+			FWidth="1"
+		fi
+		IFS=$(printf '\n')
+		ho=$(echo "$FilterOut" | \
+			awk -F ';' \
+			-v width="$FWidth" \
+			'{
+				arr[$2]++
+			} END {
+				for (x in arr) {
+					printf("%s : ", x)
+					for (i = 0; i < int(arr[x]*width); i++) {
+						printf("#")
+					}
+					printf("\n")
+				}
+			}')
+		
+		echo "$ho" | sort | column -t
+		;;
+	graph-pos)
+		if [ "$FWidth" = "" ]; then
+			FWidth="1000"
+		fi
+		IFS=$(printf '\n')
+		# pos values
+		pos=$(echo "$FilterOut" | \
+			awk -F ';' \
+			'{
+				if ($3 == "buy") {
+					arr[$2] += $6
+				} else if ($3 == "sell") {
+					arr[$2] -= $6
+				}
+				lastVal[$2] = $4
+			} END {
+				for (x in arr) {
+					printf("%s : %.2f\n", x, arr[x] * lastVal[x])
+				}
+			}' | sort)
+		# Find the abs(highest value)
+		highestVal=$(echo "$pos" | \
+			awk -F ':' \
+			'{
+				if ( $2 > 0.0 ) {
+					if ($2 > bVal) {
+						bVal = $2
+					}
+				} else {
+					if (-($2) > bVal) {
+						bVal = -($2)
+					}
+				}
+			} END {
+				printf("%d", bVal)
+			}')
+
+		gp=$(echo "$pos" | \
+			awk -F ':' \
+			-v width="$FWidth" \
+			-v hV="$highestVal" \
+			' BEGIN { divis=(hV / width) }
+			{
+				arr[$1]=($2 / divis)
+			} END {
+				for (val in arr) {
+					printf("%9-s :", val)
+					if (arr[val] < 0) {
+						printf(" ")
+						for (i = arr[val]; i < -1; i++) {
+							printf("!")
+						}
+					} else {
+						printf(" ")
+						for (i = 1; i < arr[val]; i++) {
+							printf("#")
+						}
+					}
+					printf("\n")
+				}
+			}')
+		echo "$gp" | sort
+		;;
+	*)
+		echo "$FilterOut"
+esac

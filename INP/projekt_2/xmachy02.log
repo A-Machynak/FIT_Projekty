@@ -1,0 +1,5 @@
+INFO  [openDLX]: Configuration is: {icache_use=0, text_end=0xc0, use_forwarding=true, code_start_addr=0x0, btb_size=1, cycles=1000, entry_point=64, btb_predictor_initial_state=UNKNOWN, memory_latency=0, log_file=D:/VUT/3.semestr/INP/p2/xmachy02.log, text_begin=0x40, btb_predictor=S_ALWAYS_NOT_TAKEN, log4j=log4j.properties, isa_type=DLX, data_end=0x20, print_file=D:/VUT/3.semestr/INP/p2/xmachy02.out, data_begin=0x4, file=D:/VUT/3.semestr/INP/p2/xmachy02_openDLXFile.bin, use_load_stall_bubble=false, dcache_use=0}
+INFO  [openDLX]: loading:D:/VUT/3.semestr/INP/p2/xmachy02_openDLXFile.bin
+DEBUG [PagedMem]: Reserving 262144 pages, using the upper 18 bits for page addressing
+INFO  [BTB]: Initialising the predictors with: UNKNOWN
+INFO  [DECODE]: Inserting is DLX pipeline bubble: 0xffffffff

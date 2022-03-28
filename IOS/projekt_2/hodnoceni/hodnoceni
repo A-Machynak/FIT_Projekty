@@ -1,0 +1,34 @@
+15:celkem bodu za projekt
+#-- automaticke hodnoceni -----------------------------
+= make
+:ok:make
+= prepare tests: resources
+:kontrola syntaxe vystupu => check_syntax.out
+= base_* : zakladni testy
+:ok:test_a_base_counter: navratovy kod je 0
+1:ok:test_a_base_counter
+0:fail:test_b_base_santa: chyba v posloupnosti u Santa (vizte soubor Santa-1-*)
+1:ok:test_c_base_rd: posloupnost RD ok
+1:ok:test_d_base_elf: posloupnost Elf ok
+= Slozitejsi testy
+2:ok:test_e_sync_elf_santa: synchronizace elfu a Santy
+:ok:test_g_counter: navratovy kod je 0
+1:ok:test_g_counter
+0:fail:test_h_santa: chyba v posloupnosti u Santa (vizte soubor Santa-1-*)
+1:ok:test_i_rd: posloupnost RD ok
+1:ok:test_j_elf: posloupnost Elf ok
+2:ok:test_k_sync: synchronizace elfove+Santa a Sobi+Santa
+= specialni testy
+2:ok:test_n_sync_sleep: synchronizace (castejsi prepinani procesu)
+2:ok:test_o_sync_nosleep: synchronizace (sleep -> 0)
+= test spravneho ukonceni pri chybe
+1:ok:test_q_error_1: osetreni chybneho vstupu
+= resources
+: pocet procesu ok (5, mel by byt 5)
+: pocet volani wait (waitpid) ok
+:ok: pripojeni ke sdilene pameti a uvolneni je korektni
+: pocet volani shmat a shmdt se lisi
+:ok: korektni uvolneni nepojmenovane semafory
+#------------------------------------------------------
+15:celkove score (max pro hodnoceni 15)
+15:celkem bodu za projekt

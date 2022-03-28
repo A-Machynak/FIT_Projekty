@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project outputprefix="test">
+
+	<!--  Project description -->
+	<name>IVH - projekt</name>
+	<author>Augustin Machynak</author>
+	<authoremail>xmachy02@stud.fit.vutbr.cz</authoremail>
+	<revision>1</revision>
+	<description>Projekt - Světelné noviny</description>
+
+	<!--  MCU part -->
+	<mcu>
+	    <file>main.c</file>
+	</mcu>
+
+	<!-- FPGA part -->
+	<fpga architecture="gp" dcmfrequency="20MHz">
+	    <file>top.vhd</file>
+	    <file>cell.vhd</file>
+	    <file>display.vhd</file>
+	    <file>utils.vhd</file>
+	    <file>clk_gen.vhd</file>
+	</fpga>
+
+</project>

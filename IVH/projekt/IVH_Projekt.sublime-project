@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": "c:/FitkitSVN/apps/demo/IVH_Projekt"
+		}
+	],
+
+	"build_systems":
+	[
+		{
+			"name": "FITkitBuild",
+			"cmd": ["python", "$project_path/main.py"]
+		}
+	]
+}

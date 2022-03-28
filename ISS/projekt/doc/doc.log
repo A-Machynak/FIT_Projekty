@@ -1,0 +1,254 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.5)  6 JAN 2022 02:27
+entering extended mode
+**d:/VUT/3.semestr/ISS/proj/doc/doc.tex
+(d:/VUT/3.semestr/ISS/proj/doc/doc.tex
+LaTeX2e <2020-10-01> patch level 2
+L3 programming layer <2020-10-27> xparse <2020-03-03> (E:\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(E:\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count175
+\c@section=\count176
+\c@subsection=\count177
+\c@subsubsection=\count178
+\c@paragraph=\count179
+\c@subparagraph=\count180
+\c@figure=\count181
+\c@table=\count182
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (E:\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+) (E:\MiKTeX\tex/latex/listings\listings.sty (E:\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+\lst@mode=\count183
+\lst@gtempboxa=\box47
+\lst@token=\toks18
+\lst@length=\count184
+\lst@currlwidth=\dimen139
+\lst@column=\count185
+\lst@pos=\count186
+\lst@lostspace=\dimen140
+\lst@width=\dimen141
+\lst@newlines=\count187
+\lst@lineno=\count188
+\lst@maxwidth=\dimen142
+ (E:\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count189
+\lst@skipnumbers=\count190
+\lst@framebox=\box48
+) (E:\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (E:\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+ (E:\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+ (E:\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (E:\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (E:\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (E:\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (E:\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+) (E:\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (E:\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (E:\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count191
+\Gm@cntv=\count192
+\c@Gm@tempcnt=\count193
+\Gm@bindingoffset=\dimen145
+\Gm@wd@mp=\dimen146
+\Gm@odd@mp=\dimen147
+\Gm@even@mp=\dimen148
+\Gm@layoutwidth=\dimen149
+\Gm@layoutheight=\dimen150
+\Gm@layouthoffset=\dimen151
+\Gm@layoutvoffset=\dimen152
+\Gm@dimlist=\toks19
+ (E:\MiKTeX\tex/latex/geometry\geometry.cfg)) (E:\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count194
+\l__pdf_internal_box=\box49
+) (d:/VUT\3.semestr\ISS\proj\doc\doc.aux)
+\openout1 = `doc.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+\c@lstlisting=\count195
+ (E:\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count196
+\scratchdimen=\dimen153
+\scratchbox=\box50
+\nofMPsegments=\count197
+\nofMParguments=\count198
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count199
+\MPscratchDim=\dimen154
+\MPnumerator=\count266
+\makeMPintoPDFobject=\count267
+\everyMPtoPDFconversion=\toks21
+) (E:\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69684pt, 56.90553pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23582pt, 56.90552pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69684pt
+* \textheight=731.23582pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<../doc/fit_logo.png, id=1, 2713.13625pt x 602.25pt>
+File: ../doc/fit_logo.png Graphic file (type png)
+<use ../doc/fit_logo.png>
+Package pdftex.def Info: ../doc/fit_logo.png  used on input line 48.
+(pdftex.def)             Requested size: 241.84842pt x 53.67635pt.
+[1
+
+{C:/Users/hcnov/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <../doc/fit_logo.png>] (E:\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+<../plots//plot_4_1.png, id=10, 578.16pt x 289.08pt>
+File: ../plots//plot_4_1.png Graphic file (type png)
+<use ../plots//plot_4_1.png>
+Package pdftex.def Info: ../plots//plot_4_1.png  used on input line 92.
+(pdftex.def)             Requested size: 483.69684pt x 241.8463pt.
+ [1 <../plots//plot_4_1.png>]
+<../plots//plot_4_2.png, id=19, 578.16pt x 289.08pt>
+File: ../plots//plot_4_2.png Graphic file (type png)
+<use ../plots//plot_4_2.png>
+Package pdftex.def Info: ../plots//plot_4_2.png  used on input line 123.
+(pdftex.def)             Requested size: 483.69684pt x 241.8463pt.
+ [2 <../plots//plot_4_2.png>]
+<../plots//my_fft.png, id=24, 578.16pt x 289.08pt>
+File: ../plots//my_fft.png Graphic file (type png)
+<use ../plots//my_fft.png>
+Package pdftex.def Info: ../plots//my_fft.png  used on input line 155.
+(pdftex.def)             Requested size: 411.14526pt x 205.57022pt.
+<../plots//fft.png, id=25, 578.16pt x 289.08pt>
+File: ../plots//fft.png Graphic file (type png)
+<use ../plots//fft.png>
+Package pdftex.def Info: ../plots//fft.png  used on input line 161.
+(pdftex.def)             Requested size: 411.14526pt x 205.57022pt.
+ [3 <../plots//my_fft.png> <../plots//fft.png>]
+<../plots//in_spectro.png, id=31, 578.16pt x 289.08pt>
+File: ../plots//in_spectro.png Graphic file (type png)
+<use ../plots//in_spectro.png>
+Package pdftex.def Info: ../plots//in_spectro.png  used on input line 172.
+(pdftex.def)             Requested size: 483.69684pt x 241.8463pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 187.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 187.
+ [4 <../plots//in_spectro.png>]
+<../plots//4cos_spectro.png, id=41, 578.16pt x 289.08pt>
+File: ../plots//4cos_spectro.png Graphic file (type png)
+<use ../plots//4cos_spectro.png>
+Package pdftex.def Info: ../plots//4cos_spectro.png  used on input line 238.
+(pdftex.def)             Requested size: 483.69684pt x 241.8463pt.
+ [5 <../plots//4cos_spectro.png>]
+<../plots//z_filter_IR.png, id=46, 376.40625pt x 224.33812pt>
+File: ../plots//z_filter_IR.png Graphic file (type png)
+<use ../plots//z_filter_IR.png>
+Package pdftex.def Info: ../plots//z_filter_IR.png  used on input line 270.
+(pdftex.def)             Requested size: 290.22105pt x 172.98392pt.
+ [6 <../plots//z_filter_IR.png>]
+<../plots//z_filter_zp.png, id=52, 433.62pt x 433.62pt>
+File: ../plots//z_filter_zp.png Graphic file (type png)
+<use ../plots//z_filter_zp.png>
+Package pdftex.def Info: ../plots//z_filter_zp.png  used on input line 283.
+(pdftex.def)             Requested size: 241.84842pt x 241.85292pt.
+<../plots//z_filter_freqz.png, id=53, 867.24pt x 289.08pt>
+File: ../plots//z_filter_freqz.png Graphic file (type png)
+<use ../plots//z_filter_freqz.png>
+Package pdftex.def Info: ../plots//z_filter_freqz.png  used on input line 292.
+(pdftex.def)             Requested size: 483.69684pt x 161.23528pt.
+ [7 <../plots//z_filter_zp.png> <../plots//z_filter_freqz.png>] (d:/VUT\3.semestr\ISS\proj\doc\doc.aux) ) 
+Here is how much of TeX's memory you used:
+ 4114 strings out of 479799
+ 55525 string characters out of 2886243
+ 657677 words of memory out of 3000000
+ 21105 multiletter control sequences out of 15000+200000
+ 537885 words of font info for 39 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 66i,6n,72p,238b,1311s stack positions out of 5000i,500n,10000p,200000b,50000s
+<E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><E:/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on d:/VUT\3.semestr\ISS\proj\doc\doc.pdf (8 pages, 474690 bytes).
+PDF statistics:
+ 94 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+
