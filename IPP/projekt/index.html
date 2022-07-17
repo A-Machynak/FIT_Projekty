@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Test results">
+    <style>
+    th, td { padding-left:10px; padding-right:10px; color:white; }
+    h1,h2,h3,h4 { color:white; }
+    textarea { background-color: rgb(18, 18, 18); color:white; }
+    body { padding-left: 1em; padding-right: 1em; background-color: rgb(18, 18, 18); }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Test result</h1>
+    <h2>Tests run: 12</h2>
+    <h2>Passed: 10 </h2>
+    <h2>Failed: 2 </h2>
+    <hr>
+    <h3 style="text-align: center; color:red">Failed tests</h3><hr><h4>ipp-tests/parse-only/string</h4><table><tr><th>Test name</th><th>Return code</th><th>Expected return code</th><th>Output</th><th>Expected output</th></tr>
+<tr><td>escape1</td><td>0</td><td>23</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+<instruction order="1" opcode="MOVE">
+<arg1 type="var">GF@counter</arg1>
+<arg2 type="string">řetězec\03s\032lomítkem\032\092\032a\010novým\035řádkem</arg2>
+</instruction>
+</program></textarea></td><td><textarea readonly rows=5 cols=50></textarea></td></tr>
+
+<tr><td>slash</td><td>0</td><td>23</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+<instruction order="1" opcode="MOVE">
+<arg1 type="var">GF@counter</arg1>
+<arg2 type="string">abc\</arg2>
+</instruction>
+</program></textarea></td><td><textarea readonly rows=5 cols=50></textarea></td></tr>
+
+</table>
+<hr><h3 style="text-align: center; color:green">Passed tests</h3><hr><h4>ipp-tests/parse-only/string</h4><table><tr><th>Test name</th><th>Return code</th><th>Output</th></tr>
+<tr><td>comment</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">abc</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>empty</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string"></arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>escape</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">řetězec\032s\032lomítkem\032\092\032a\010novým\035řádkem</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>escape2</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">řetězec\0322s\032lomítkem\032\092\032a\010novým\035řádkem</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>escape3</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">řetězec\126\032lomítkem\032\092\032a\010novým\035řádkem</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>escape4</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">řetězec\000\032lomítkem\032\092\032a\010novým\035řádkem</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>long</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>numbers</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">1234a</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>ok</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">abc</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+<tr><td>utf</td><td>0</td><td><textarea readonly rows=5 cols=50><?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="MOVE">
+  <arg1 type="var">GF@counter</arg1>
+  <arg2 type="string">čššěčěřýýážá=í=éú)ů§-,;</arg2>
+ </instruction>
+</program>
+</textarea></td></tr>
+
+</table>
+</body></html>
