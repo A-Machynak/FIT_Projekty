@@ -16,3 +16,12 @@ VUT FIT Projekty
 - IAL - Algoritmy (C)
 - INP - Návrh počítačových systémů (VHDL, Assembler - DLX instruction set)
 - ISS - Signály a systémy (Python)
+
+## 4. semestr
+- IDS - Databázové systémy (SQL (Oracle))
+- IPK - Počítačové komunikace a sítě (C++)
+- IPP - Principy programovacích jazyků a OOP (PHP, Python)
+- IZG - Základy počítačové grafiky (C++)
+- IZU - Základy umělé inteligence
+- IBS - Bezpečnost a počítačové sítě
+- IJA - Seminář Java (Java)
