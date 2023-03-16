@@ -25,3 +25,9 @@ VUT FIT Projekty
 - IZU - Základy umělé inteligence
 - IBS - Bezpečnost a počítačové sítě
 - IJA - Seminář Java (Java)
+
+## 5. semestr
+- IMP - Mikroprocesorové a vestavěné systémy (C)
+- IMS - Modelování a simulace (C++)
+- ISA - Síťové aplikace a správa sítí (C++)
+- IZV - Zpracování a vizualizace dat v prostředí Python (Python)

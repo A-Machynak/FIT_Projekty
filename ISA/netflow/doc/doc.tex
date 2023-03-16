@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+}
+
+\renewcommand{\figurename}{Obrázek}
+\renewcommand*\contentsname{Obsah}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vfill
+    \includegraphics[width=0.5\textwidth]{fit_logo}
+    \vfill
+    {\Huge{\bfseries{Manuál k implementaci Netflow exportéru}}\\
+        \vspace*{1em}
+        \Large{Říjen 2022}\\
+        \vfill
+        Augustin Machyňák \\
+        xmachy02
+    }
+    \vfill
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Úvod}
+Tento dokument slouží jako úvod do problematiky implementace netflow exportéru
+a popisu implementace pomocí knihovny \textit{pcap}.
+
+Netflow exportér slouží k exportování záznamů o příchozích a odchozích paketech
+na rozhraní v síti pomocí netflow protokolu na netflow kolektor, na kterém jsou tyto
+data agregována.
+Z těchto dat je následně možné detekovat například podezřelý provoz v síti - skenování sítě aj.
+
+\section{Návod na použití}
+Pro přeložení je možné použít přiložený Makefile. Tento Makefile slouží pouze
+pro spuštění cmake. Po zavolání příkazu \textit{make} se provede vytvoření složky
+\textit{build/}, spuštění cmake v této složce, přeložení aplikace a následně je
+spustitelný soubor přemístěn do kořenového adresáře.
+Aplikaci je následně možné spustit příkazem \textit{./flow}.
+Je také možné vypsat použití pomocí flagu \textit{-h} (\textit{./flow -h})
+nebo manuálu \textit{flow.1} (\textit{man -l flow.1}).
+
+\section{Implementace}
+Pro implementaci byla zvolena verze V5 Netflow protokolu a jazyk C++ (verze C++17).
+Všechny informace byly získané ze zdrojů uvedených v doporučené literatuře v zadání
+projektu (studijní materiály k předmětu ISA), případně jsou uvedené ve zdrojových souborech.
+
+\subsection{Podrobnosti}
+Jako první je vhodné si ujasnit některé zásadní podrobnosti,
+týkající se této implementace netflow exportéru, aby je nebylo nutné
+zmiňovat dále. Implementace:
+\begin{itemize}
+    \item funguje "online" (vstup zpracovává sériově)
+    - po přečtení každého paketu ze souboru/stdin je vyhodnoceno,
+    jestli budou flow záznamy exportovány
+    \item využívá \textbf{pouze} časové značky získané z pcap souboru
+    - aktuální čas je roven času příchodu paketu;
+    tedy čas příchodu prvního paketu je roven času spuštění systému
+    \item nekontroluje IPv4 checksum
+\end{itemize}
+
+\subsection{Struktury}
+Pro potřeby implementace bylo definováno několik struktur:
+\begin{itemize}
+    \item Netflow V5 Header a Record
+    \item Ethernet Header
+    \item IPv4 a IPv6 Header
+    \item TCP, UDP a ICMP Header
+\end{itemize}
+
+Netflow Header a Record je zřejmě použit při exportování.
+Všechny ostatní headery slouží ke zpracování dat přečtených z pcap souborů.
+
+Už při psaní těchto struktur může vzniknout problém
+- totiž v C/C++ není zaručeno zarovnání.
+Některé překladače/architektury můžou z 1B udělat 4B po zarovnání,
+což může být problematické, pokud je cílem napsat přenositelný kód.
+Je možné použít direktivy jako \textit{\#pragma pack(1)}, avšak to není standardem.
+Nakonec bylo zvoleno použití \textit{std::uint8\_t} u všech hodnot s tím,
+že pokud je potřeba více, než 8b, tak je použito pole.
+
+U Netflow V5 Header a Record není na zarovnání brán ohled.
+Pro exportování je dostupná metoda \\ \textit{Serialize()},
+která serializuje příslušnou strukturu do pole \textit{std::uint8\_t}
+vhodného pro zaslání po síti.
+
+\subsection{Parsování dat z pcap souboru}
+Při přečtení každého z paketů je prvně paket přetypován
+na Ethernet header. Následuje kontrola "EtherType" pole v tomto headeru 
+a pokud EtherType odpovídá IPv4 nebo IPv6 EtherType, tak je dále přetypován
+s tím, že ukazatel je posunut o velikost Ethernet headeru.
+
+Pokud "protocol" pole v IPv4 nebo "next" pole v IPv6 headeru odpovídá
+TCP/UDP/ICMP číslu protokolu, tak je dále přetypován
+a uložen ukazatel stejným způsobem jako u IPv4/IPv6.
+Netflow V5 nepodporuje IPv6, takže zpracovávání takových paketů nemá
+žádný význam, což si autor uvědomil až později.
+Teoreticky je možné tuto implementaci upravit takovým způsobem, aby
+podporovala Netflow V8, proto tato část byla ponechána pro případné
+rozšíření.
+
+Jestliže číslo protokolu neodpovídá žádnému z podporovaných protokolů
+(které jsou specifikované v zadání), tak není zahozen.
+Vzhledem k tomu, že jsou pakety zpracovávány tímto způsobem,
+nebyl nalezen důvod k nezahrnutí těchto paketů do flow záznamů.
+Knihovna pcap totiž nabízí možnost filtrování paketů při čtení
+z pcap souborů, čehož nebylo využito.
+
+\subsection{Přidávání flow záznamů}
+Po naparsování (IPv4) paketu je provedeno jeho přiřazení do flow záznamu
+nebo vytvoření nového flow záznamu.
+Pokud již existuje záznam, který má stejnou:
+\begin{itemize}
+    \item IPv4 zdroje
+    \item IPv4 cíle
+    \item číslo protokolu
+    \item "Type of Service" ("DSCP")
+    \item port zdroje
+    \item port cíle
+\end{itemize}
+jako příchozí paket, tak jsou v tomto záznamu aktualizovány data
+(počet paketů, počet bajtů, čas příchodu posledního paketu a případně TCP flagy).
+
+Pokud neexistuje takový záznam, tak je vytvořen nový.
+
+\subsection{Exportování záznamů}
+Při příchodu paketu je aktualizován čas a je tedy nutné zkontrolovat,
+jestli nevypršel jeden z časovačů ("inactive/active timer") v některém ze záznamů.
+Pokud některý z těchto časovačů vypršel, tak je nutné záznam exportovat.
+Mj. je také exportován nejdéle uložený záznam v případě, že je naplněna
+\textit{"flow-cache"}.
+
+Jako první se projde každý z uložených záznamů a ty, kterým vypršely časovače,
+jsou uloženy do pole pro exportování. Jakmile jsou všechny záznamy zkontrolovány,
+tak dojde k serializaci těchto záznamů a odeslání na netflow kolektor.
+
+\section{Testování}
+Vzhledem k povaze úlohy bylo testování prováděno manuálně.
+Ideální testování by využívalo implementace "dummy" netflow kolektor serveru.
+Avšak vzhledem k složitosti takového testování bylo využito pouze porovnání výsledků
+pomocí již existující implementace - \textbf{softflowd}.
+
+Bylo vygenerováno několik pcap souborů z reálné komunikace s
+malým (cca 10), středním (cca 100) a velkým (cca 10000) množstvím paketů.
+Následně byly porovnány výsledky z agregovaných netflow záznamů
+zaslané na \textit{nfcapd} pomocí této implementace netflow kolektoru
+a \textit{softflowd}. 
+
+Výsledky byly podobné, avšak ne úplně stejné. Počet zaslaných paketů
+i bajtů jsou stejné; počet flow záznamů je však jiný
+- v referenční implementaci je jich méně.
+Důvodem je pravděpodobně fakt, že referenční implementace nebere
+v potaz časové údaje poskytované pcap souborem a zasílá všechny
+zachycené pakety najednou. To má za následek, že některé flow záznamy
+se vyskytnou ve finálním shrnutí pouze jednou místo toho,
+aby se vyskytly několikrát v různých časech
+(- po N sekundách jsou exportovány neaktivní záznamy).
+
+\end{document}

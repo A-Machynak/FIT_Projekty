@@ -1,0 +1,37 @@
+.TH FLOW 1
+.SH NAME
+flow \- netflow exporter implementation
+
+.SH SYNOPSIS
+.B flow
+[\fB\-f\fR \fIfile\fR]
+[\fB\-c\fR \fInetflow_collector[:port]\fR]
+[\fB\-a\fR \fIactive_timer\fR]
+[\fB\-i\fR \fIinactive_timer\fR]
+[\fB\-m\fR \fIcount\fR]
+
+.SH DESCRIPTION
+.B flow
+reads data from specified pcap file (or STDIN) and exports it to a netflow collector.
+
+.SH OPTIONS
+.TP
+.BR \-f\ \fIfile\fR
+Name of the file to analyze.
+Default is STDIN.
+.TP
+.BR \-c\ \fInetflow_collector:port\fR
+IP address or hostname of a netflow collector and port.
+Default is 127.0.0.1:2055.
+.TP
+.BR \-a\ \fIactive_timer\fR
+Interval in seconds after which active records will be exported.
+Default is 60.
+.TP
+.BR \-i\ \fIseconds\fR
+Interval in seconds after which inactive records will be exported.
+Default is 10.
+.TP
+.BR \-m\ \fIcount\fR
+Flow-cache size.
+Default is 1024.

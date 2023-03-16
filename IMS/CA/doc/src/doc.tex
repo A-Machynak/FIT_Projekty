@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listingsutf8}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{subfiles}
+\usepackage{textcomp}
+\usepackage{xparse}
+\usepackage[unicode]{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\graphicspath{ {./img/} }
+\lstset{inputpath=code/}
+
+\lstset { %
+    language=c++,
+    backgroundcolor=\color{black!5},
+    tabsize=2,
+    inputencoding=utf8,
+    texcl=true,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{teal}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#},
+    title=\lstname,
+    literate = {\#}{{{\#}}}1
+    {~} {$\sim$}{1},
+    showstringspaces=false,
+}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+}
+
+\renewcommand{\figurename}{Obr.}
+\renewcommand*\contentsname{Obsah}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vfill
+    \includegraphics[width=0.5\textwidth]{fit_logo}
+    \vfill
+    {\Huge{\bfseries{Dokumentace projektu IMS}}\\
+        Model celulárního automatu\\
+        \vspace*{1em}
+        \Large{Prosinec 2022}\\
+        \vfill
+        Augustin Machyňák\\
+        xmachy02
+    }
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\subfile{sections/intro.tex}
+\newpage
+
+\subfile{sections/tech.tex}
+\newpage
+
+\subfile{sections/conception.tex}
+\newpage
+
+\subfile{sections/architecture.tex}
+\newpage
+
+\subfile{sections/experiment.tex}
+\newpage
+
+\subfile{sections/end.tex}
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{bib/refs}
+
+\end{document}

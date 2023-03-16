@@ -1,0 +1,75 @@
+\section{Architektura}
+
+\subsection{Modely}
+Implementace modelu elementárního CA je triviální a již byla zmíněna v předchozí
+části.
+Náročnější je vytvoření prostředí, ve kterém je možné efektivně experimentovat
+s různými parametry. Proto byly přidány některé vhodné metody:
+
+\begin{itemize}
+	\item Zadávání pravidel jako seznam čísel přes CLI (\textit{Command Line Interface})
+	\item Zadávání počátečního stavu jako seznam čísel přes CLI s možností
+	zadání náhodného stavu aj.
+	\item Způsob iterování pravidel ("RuleStrategy"):
+	\begin{itemize}
+		\item Náhodný - pro každou generaci je vybráno náhodné pravidlo
+		\item Náhodný z datasetu - je vybráno náhodné pravidlo ze seznamu
+		pravidel zadaných uživatelem
+		\item Cyklický - je vybráno následující pravidlo ze seznamu pravidel
+		zadaných uživatelem, přičemž u posledního pravidla
+		je proveden návrat k prvnímu pravidlu
+		\item Cyklický bez návratu - místo návratu k prvnímu pravidlu se
+		opakovaně aplikuje poslední pravidlo
+	\end{itemize}
+\end{itemize}
+
+Kód je dostupný ve třídě CA::Elementary (\verb|src/model/elementary.*|).
+
+
+\subsection{Simulace a vizualizace}
+Podstatnou částí je vizualizace CA. Tu zajišťuje velmi malý "framework",
+který byl vytvořen pro potřeby zobrazení CA ve 2D.
+Jedná se pouze o okno, které obsahuje plochu o velikosti zadané uživatelem.
+Jednotlivé pixely je možné na této ploše poté upravovat.
+Použití tohoto frameworku vypadá následovně:
+\begin{enumerate}
+	\item Vytvoření nového okna o zadané velikosti (\textit{Gui::PixelWindow})
+	\item Nastavení časového kroku
+	\item Implementace rozhraní \textit{Gui::IStepper}:
+	\begin{enumerate}
+		\item Inicializace - voláno pouze jednou na začátku
+		\item Kroková funkce - voláno každý časový krok
+		\item Podmínka ukončení - kontrolováno po každém časovém kroku
+		\item Reset - voláno po zmáčknutí tlačítka; sémantika může
+		být teoreticky různá, ale očekává se návrat do počátečního stavu
+	\end{enumerate}
+	\item Spuštění simulace s parametrem instance implementovaného rozhraní
+	(v případě elementárního CA \\\textit{ModelWrapper::ElementaryWrapper})
+\end{enumerate}
+Tento framework je možné jednoduše použít obecně pro vizualizaci jakéhokoliv 1D/2D CA
+(teoreticky i více, ale pro tyto potřeby nebyl vytvořen a bylo by to tedy komplikované).
+
+Kód je dostupný ve třídě Gui::PixelWindow (\verb|visualization/gui/gui.*|)
+a ModelWrapper::ElementaryWrapper (\verb|visualization/models_wrap/elementary_ca_wrapper.*|).
+
+\subsubsection{Použití programu}
+
+Příklady použití (CLI):
+\begin{verbatim}
+	$ ./CA_Visualization -h
+\end{verbatim}
+
+Pravidla se perodicky střídají, pro 1.
+generaci zvolen 1 náhodný bod,
+zvolená pravidla 105 a 106,
+vypnutí opengl (obrázek představující výsledky generací je
+uložen do souboru \verb|rule_105_106.png| po dokončení simulace):
+\begin{verbatim}
+	$ ./CA_Visualization -out rule_105_106 -gloff -caargs dring rng1 105,106
+\end{verbatim}
+
+Pravidla se náhodně střídají, počáteční stav (0, 0, 1, 0, 0, 1, ...),
+zvolená pravidla 15, 22, 30, 60.
+\begin{verbatim}
+	$ ./CA_Visualization -caargs drandom 0,0,1 15,22,30,60
+\end{verbatim}
